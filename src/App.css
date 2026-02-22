@@ -21,6 +21,10 @@ body {
   color: #000;
 }
 
+a {
+  color: #0b4d8a;
+}
+
 .menu-bar {
   position: fixed;
   top: 0;
@@ -107,8 +111,8 @@ body {
 
 .window {
   position: absolute;
-  width: min(680px, calc(100vw - 24px));
-  max-height: min(560px, calc(100vh - 60px));
+  width: min(760px, calc(100vw - 24px));
+  max-height: min(600px, calc(100vh - 60px));
   display: flex;
   flex-direction: column;
   border: 2px solid #111;
@@ -156,28 +160,79 @@ body {
 }
 
 .window-content h2 {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-size: 16px;
 }
 
 .window-content h3 {
-  margin: 12px 0 8px;
+  margin: 12px 0 6px;
   font-size: 14px;
 }
 
-.profile-img {
-  width: 76px;
-  height: 76px;
-  border: 2px solid #111;
-  background: linear-gradient(135deg, #8fc7ff, #fdd7a9);
-  float: right;
-  margin: 0 0 8px 12px;
+.window-content p {
+  margin: 0 0 8px;
 }
 
-.project-item {
-  border-top: 1px dashed #888;
-  padding-top: 8px;
-  margin-top: 8px;
+.window-content ul {
+  margin: 0 0 10px;
+  padding-left: 18px;
+}
+
+.subtle {
+  color: #555;
+  font-size: 12px;
+}
+
+.journal-entry {
+  border-top: 1px dashed #8d8d8d;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.journal-date {
+  display: inline-block;
+  background: #d2e6ff;
+  border: 1px solid #6a88ad;
+  font-size: 11px;
+  padding: 1px 6px;
+  margin-bottom: 6px;
+}
+
+.project-card {
+  border-top: 1px dashed #8d8d8d;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.project-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: #444;
+}
+
+.status {
+  border: 1px solid #666;
+  padding: 1px 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.status.active {
+  background: #d2f2d0;
+  border-color: #427a3f;
+}
+
+.status.scoped {
+  background: #fff2bf;
+  border-color: #8b7327;
+}
+
+.status.blocked {
+  background: #ffd5d5;
+  border-color: #964242;
 }
 
 .os-details {
