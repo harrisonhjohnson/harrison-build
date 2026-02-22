@@ -25,15 +25,21 @@ a {
   color: #0b4d8a;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #0b4d8a;
+  outline-offset: 2px;
+}
+
 .menu-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 28px;
+  height: 32px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 0 8px;
   background: #d8d8d8;
   border-bottom: 2px solid #111;
@@ -45,36 +51,57 @@ a {
   text-align: center;
 }
 
+.menu-group {
+  display: flex;
+  gap: 4px;
+}
+
 .menu-item {
   background: transparent;
   border: 0;
   font: inherit;
   cursor: pointer;
-  padding: 2px 4px;
+  padding: 2px 6px;
   border-radius: 8px;
 }
 
 .menu-item:hover,
-.menu-item:focus-visible {
-  background: #111;
-  color: #fff;
-  outline: none;
-}
-
 .menu-item.is-active {
   background: #111;
   color: #fff;
 }
 
-.clock {
+.view-toggle {
   margin-left: auto;
-  font-size: 12px;
+  display: flex;
+  gap: 4px;
+}
+
+.view-button {
+  border: 1px solid #222;
+  background: #f2f2f2;
+  font: inherit;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.view-button.is-active {
+  background: #1d335f;
+  color: #fff;
+}
+
+.clock {
+  font-size: 11px;
+  min-width: 72px;
+  text-align: right;
 }
 
 .desktop {
   width: 100vw;
   height: 100vh;
-  padding-top: 28px;
+  padding-top: 32px;
   position: relative;
   background-image: linear-gradient(transparent 95%, rgba(255, 255, 255, 0.06) 95%),
     linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.06) 95%);
@@ -84,9 +111,9 @@ a {
 .icon-column {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 24px 12px;
-  width: 120px;
+  gap: 20px;
+  padding: 20px 12px;
+  width: 128px;
 }
 
 .icon {
@@ -100,15 +127,16 @@ a {
   font: inherit;
   cursor: pointer;
   text-shadow: 1px 1px 0 #000;
+  border-radius: 8px;
+  padding: 6px 4px;
 }
 
-.icon:focus-visible {
-  outline: 2px dashed #fff;
-  outline-offset: 2px;
+.icon:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .icon-img {
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .icon-label {
@@ -117,8 +145,8 @@ a {
 
 .window {
   position: absolute;
-  width: min(760px, calc(100vw - 24px));
-  max-height: min(600px, calc(100vh - 60px));
+  width: min(820px, calc(100vw - 24px));
+  max-height: min(640px, calc(100vh - 66px));
   display: flex;
   flex-direction: column;
   border: 2px solid #111;
@@ -161,7 +189,7 @@ a {
 .window-content {
   padding: 12px;
   overflow: auto;
-  line-height: 1.4;
+  line-height: 1.45;
   font-size: 13px;
 }
 
@@ -189,7 +217,25 @@ a {
   font-size: 12px;
 }
 
-.journal-entry {
+.trio-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 8px 0 12px;
+}
+
+.trio-strip article {
+  border: 1px solid #9aa8ca;
+  background: #f4f7ff;
+  padding: 8px;
+}
+
+.trio-strip h3 {
+  margin-top: 0;
+}
+
+.journal-entry,
+.project-card {
   border-top: 1px dashed #8d8d8d;
   margin-top: 10px;
   padding-top: 10px;
@@ -202,12 +248,6 @@ a {
   font-size: 11px;
   padding: 1px 6px;
   margin-bottom: 6px;
-}
-
-.project-card {
-  border-top: 1px dashed #8d8d8d;
-  margin-top: 10px;
-  padding-top: 10px;
 }
 
 .project-meta {
@@ -241,6 +281,48 @@ a {
   border-color: #964242;
 }
 
+.wins-list li {
+  margin-bottom: 6px;
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.tool-badge {
+  font-size: 11px;
+  border: 1px solid #7d8fb9;
+  background: #eaf0ff;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #23457a;
+  border-radius: 10px;
+  background: #e8f0ff;
+  color: #13376b;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cta-button:hover {
+  background: #cfe0ff;
+}
+
 .os-details {
   position: fixed;
   right: 12px;
@@ -250,16 +332,16 @@ a {
   text-shadow: 1px 1px 0 #000;
 }
 
+@media (max-width: 980px) {
+  .trio-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 780px) {
   @keyframes mobilePaneIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px) scale(0.992);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+    from { opacity: 0; transform: translateY(10px) scale(0.992); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   body {
@@ -268,16 +350,24 @@ a {
   }
 
   .menu-bar {
-    height: 44px;
+    height: 50px;
     gap: 6px;
-    padding: 6px 10px;
+    padding: 6px 8px;
     border-bottom: 0;
     background: rgba(240, 243, 255, 0.2);
     backdrop-filter: blur(10px);
+    flex-wrap: wrap;
   }
 
   .apple-logo {
     display: none;
+  }
+
+  .menu-group {
+    order: 2;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
 
   .menu-item {
@@ -287,21 +377,35 @@ a {
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: #f3f7ff;
     background: rgba(255, 255, 255, 0.08);
+    white-space: nowrap;
   }
 
+  .menu-item:hover,
   .menu-item.is-active {
     color: #102047;
     background: #e8eeff;
     border-color: #e8eeff;
   }
 
-  .menu-item:hover,
-  .menu-item:focus-visible {
-    color: #102047;
+  .view-toggle {
+    order: 1;
+    margin-left: 0;
+  }
+
+  .view-button {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+    color: #f3f7ff;
+  }
+
+  .view-button.is-active {
     background: #e8eeff;
+    color: #102047;
   }
 
   .clock {
+    order: 1;
+    margin-left: auto;
     color: #f3f7ff;
     font-size: 11px;
     font-weight: 600;
@@ -311,7 +415,7 @@ a {
     min-height: 100vh;
     overflow: auto;
     background-image: none;
-    padding-top: 52px;
+    padding-top: 88px;
     padding-bottom: 94px;
   }
 
@@ -324,7 +428,7 @@ a {
     margin: 0 10px;
     width: calc(100vw - 20px);
     max-height: none;
-    min-height: calc(100vh - 162px);
+    min-height: calc(100vh - 196px);
     border: 0;
     border-radius: 26px;
     box-shadow: 0 22px 48px rgba(0, 0, 0, 0.35);
