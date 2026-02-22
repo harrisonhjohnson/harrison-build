@@ -220,10 +220,74 @@ const WINDOWS = [
         </p>
       </>
     )
+  },
+  {
+    id: 'personal-window',
+    title: 'Personal Projects',
+    icon: '🧪',
+    label: 'Personal',
+    defaultPosition: { top: 128, left: 280 },
+    content: (
+      <>
+        <h2>Personal Labs</h2>
+        <p>
+          Outside core product work, I run smaller projects focused on tooling,
+          analysis, and writing systems.
+        </p>
+
+        <section className="project-card">
+          <h3>Onboarding LLM Specialist</h3>
+          <p className="project-meta">
+            <span className="status active">Active</span>
+            <span>AI product experimentation</span>
+          </p>
+          <p>
+            Building a focused assistant for user onboarding strategy, with a
+            retrieval layer tuned to real onboarding frameworks and teardown data.
+          </p>
+        </section>
+
+        <section className="project-card">
+          <h3>Factor Graph Explainer</h3>
+          <p className="project-meta">
+            <span className="status scoped">Research</span>
+            <span>Technical storytelling</span>
+          </p>
+          <p>
+            Developing explainers that translate probabilistic modeling concepts
+            into practical product and analytics use cases.
+          </p>
+        </section>
+
+        <section className="project-card">
+          <h3>Translation QA Expert Toolkit</h3>
+          <p className="project-meta">
+            <span className="status active">Active</span>
+            <span>Localization quality tooling</span>
+          </p>
+          <p>
+            Building reusable QA checks and workflows to reduce localization regressions
+            across mobile, web, and vendor handoff pipelines.
+          </p>
+        </section>
+
+        <section className="project-card">
+          <h3>Writing + Decision Memos</h3>
+          <p className="project-meta">
+            <span className="status scoped">Ongoing</span>
+            <span>Ops and strategy publishing</span>
+          </p>
+          <p>
+            Producing concise strategy briefs and launch postmortems to improve
+            decision quality and cross-team alignment.
+          </p>
+        </section>
+      </>
+    )
   }
 ];
 
-const MENU_ITEMS = ['Journal', 'Projects', 'Resume', 'Contact'];
+const MENU_ITEMS = ['Journal', 'Projects', 'Personal', 'Resume', 'Contact'];
 
 function formatClock(now) {
   const hours = now.getHours();
