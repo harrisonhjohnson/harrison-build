@@ -250,6 +250,20 @@ const WINDOWS = [
         </p>
 
         <section className="project-card">
+          <h3>Family Tree (Local-first Genealogy)</h3>
+          <p className="project-meta">
+            <span className="status active">Active</span>
+            <span>FastAPI + React + OCR pipeline</span>
+          </p>
+          <p>
+            Building a genealogy app for colonial records with evidence-based provenance:
+            source ingestion, OCR extraction, review queue, interactive tree visualization,
+            and GEDCOM export.
+          </p>
+          <p className="subtle">Repo: ~/projects/family-tree</p>
+        </section>
+
+        <section className="project-card">
           <h3>Onboarding LLM Specialist</h3>
           <p className="project-meta">
             <span className="status active">Active</span>
