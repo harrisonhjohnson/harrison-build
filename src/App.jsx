@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import workUpdates from './data/work-updates.json';
 
 const WINDOWS = [
   {
@@ -70,6 +71,19 @@ const WINDOWS = [
             <li>Used roadmap + staffing reconciliation to preempt execution drift</li>
           </ul>
         </article>
+
+        <h3>Recent Files (Auto-Synced)</h3>
+        <p className="subtle">
+          Generated from your latest `/work` markdown updates.
+        </p>
+        {workUpdates.updates.slice(0, 8).map((item) => (
+          <article className="journal-entry" key={item.path}>
+            <div className="journal-date">{item.updated_at}</div>
+            <h3>{item.title}</h3>
+            <p>{item.summary || item.path}</p>
+            <p className="subtle">{item.path}</p>
+          </article>
+        ))}
       </>
     )
   },

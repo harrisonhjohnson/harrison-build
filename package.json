@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync:journal": "node scripts/sync-work-journal.mjs",
+    "session:start": "bash scripts/session-start.sh",
+    "watch:work": "node scripts/watch-work.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
