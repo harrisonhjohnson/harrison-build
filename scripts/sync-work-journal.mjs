@@ -5,6 +5,24 @@ const WORK_DIR = '/Users/harrison/work';
 const PERSONAL_PROJECTS_DIR = '/Users/harrison/personal/projects';
 const OUT_FILE = '/Users/harrison/PARA/Projects/Active/harrison-build/src/data/work-updates.json';
 const MAX_ITEMS = 20;
+const EXCLUDED_PERSONAL_PROJECTS = new Set([
+  'mold-remediation',
+  'anne-health'
+]);
+const TECH_HINTS = /(app|software|tool|ai|ml|api|automation|data|analysis|pipeline|platform|code|backend|frontend|sdk)/i;
+const REDACT_NAMES = [
+  'JB',
+  'Darrell'
+];
+
+function redact(text) {
+  let out = String(text ?? '');
+  for (const name of REDACT_NAMES) {
+    const re = new RegExp(`\\b${name}\\b`, 'g');
+    out = out.replace(re, 'a team member');
+  }
+  return out;
+}
 
 function readTitle(content, fallback) {
   const lines = content.split(/\r?\n/);
@@ -52,8 +70,15 @@ function getProjectMdFiles(dir) {
     if (!entry.isDirectory()) {
       continue;
     }
+    if (EXCLUDED_PERSONAL_PROJECTS.has(entry.name)) {
+      continue;
+    }
     const full = path.join(dir, entry.name, 'PROJECT.md');
     if (!fs.existsSync(full)) {
+      continue;
+    }
+    const content = fs.readFileSync(full, 'utf8');
+    if (!TECH_HINTS.test(content) && !TECH_HINTS.test(entry.name)) {
       continue;
     }
     const stat = fs.statSync(full);
@@ -78,8 +103,8 @@ function build() {
       path: f.source === 'work' ? `~/work/${f.name}` : `~/personal/projects/${f.name}`,
       source: f.source,
       updated_at: new Date(f.stat.mtimeMs).toISOString().slice(0, 10),
-      title: readTitle(content, fallbackTitle),
-      summary: readSummary(content)
+      title: redact(readTitle(content, fallbackTitle)),
+      summary: redact(readSummary(content))
     };
   });
 

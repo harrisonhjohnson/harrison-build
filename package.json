@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run blog:build && vite build",
+    "build": "npm run sync:journal && npm run blog:daily && npm run blog:build && vite build",
     "preview": "vite preview",
+    "blog:daily": "node scripts/generate-daily-post.mjs",
     "blog:build": "node scripts/build-blog.mjs",
     "sync:journal": "node scripts/sync-work-journal.mjs",
     "session:start": "bash scripts/session-start.sh",

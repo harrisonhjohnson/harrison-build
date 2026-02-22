@@ -5,22 +5,13 @@ const WATCH_DIR = '/Users/harrison/work';
 let timer = null;
 
 function runSync() {
-  const syncResult = spawnSync('node', ['scripts/sync-work-journal.mjs'], {
+  const syncResult = spawnSync('bash', ['scripts/session-start.sh'], {
     cwd: process.cwd(),
     stdio: 'inherit'
   });
 
   if (syncResult.status !== 0) {
-    console.error('Sync failed');
-    return;
-  }
-
-  if (process.env.AUTO_PUSH === '1') {
-    spawnSync('bash', ['scripts/session-start.sh'], {
-      cwd: process.cwd(),
-      stdio: 'inherit',
-      env: { ...process.env, AUTO_PUSH: '1' }
-    });
+    console.error('Session sync failed');
   }
 }
 

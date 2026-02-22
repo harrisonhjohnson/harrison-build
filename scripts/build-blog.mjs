@@ -4,8 +4,9 @@ import path from 'node:path';
 const SITE_URL = 'https://harrison.build';
 const BLOG_DIR = '/Users/harrison/PARA/Projects/Active/harrison-build/public/blog';
 const PUBLIC_DIR = '/Users/harrison/PARA/Projects/Active/harrison-build/public';
+const AUTO_POSTS_FILE = '/Users/harrison/PARA/Projects/Active/harrison-build/src/data/auto-posts.json';
 
-const posts = [
+const curatedPosts = [
   {
     slug: 'international-launch-control-plane',
     title: 'How to Run an International Launch Without Losing the Plot',
@@ -73,22 +74,76 @@ const posts = [
   }
 ];
 
+function esc(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function cdata(value) {
+  return String(value).replace(/]]>/g, ']]]]><![CDATA[>');
+}
+
+function loadAutoPosts() {
+  if (!fs.existsSync(AUTO_POSTS_FILE)) {
+    return [];
+  }
+
+  try {
+    const parsed = JSON.parse(fs.readFileSync(AUTO_POSTS_FILE, 'utf8'));
+    if (!Array.isArray(parsed.posts)) {
+      return [];
+    }
+
+    return parsed.posts
+      .filter((post) => post && typeof post === 'object')
+      .map((post) => ({
+        slug: String(post.slug ?? '').trim(),
+        title: String(post.title ?? '').trim(),
+        description: String(post.description ?? '').trim(),
+        date: String(post.date ?? '').trim(),
+        tags: Array.isArray(post.tags) ? post.tags.map((tag) => String(tag)).slice(0, 6) : [],
+        body: Array.isArray(post.body) ? post.body.map((line) => String(line)).filter(Boolean) : []
+      }))
+      .filter((post) => post.slug && post.title && post.description && post.date && post.body.length > 0);
+  } catch (err) {
+    console.warn(`Failed to load auto posts: ${err.message}`);
+    return [];
+  }
+}
+
+function mergePosts(posts) {
+  const seen = new Set();
+  return posts
+    .sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug))
+    .filter((post) => {
+      if (seen.has(post.slug)) {
+        return false;
+      }
+      seen.add(post.slug);
+      return true;
+    });
+}
+
 function renderPost(post) {
-  const tagHtml = post.tags.map((t) => `<span class="tag">${t}</span>`).join('');
-  const bodyHtml = post.body.map((p) => `<p>${p}</p>`).join('\n');
+  const tagHtml = post.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join('');
+  const bodyHtml = post.body.map((p) => `<p>${esc(p)}</p>`).join('\n');
   const url = `${SITE_URL}/blog/${post.slug}.html`;
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${post.title} | Harrison Johnson</title>
-  <meta name="description" content="${post.description}" />
-  <meta name="keywords" content="${post.tags.join(', ')}" />
+  <title>${esc(post.title)} | Harrison Johnson</title>
+  <meta name="description" content="${esc(post.description)}" />
+  <meta name="keywords" content="${esc(post.tags.join(', '))}" />
   <link rel="canonical" href="${url}" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="${post.title}" />
-  <meta property="og:description" content="${post.description}" />
+  <meta property="og:title" content="${esc(post.title)}" />
+  <meta property="og:description" content="${esc(post.description)}" />
   <meta property="og:url" content="${url}" />
   <meta property="og:site_name" content="Harrison Build" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -116,7 +171,7 @@ function renderPost(post) {
 </head>
 <body>
   <header>
-    <h1>${post.title}</h1>
+    <h1>${esc(post.title)}</h1>
     <div class="meta">Published ${post.date}</div>
     <div class="tags">${tagHtml}</div>
   </header>
@@ -133,9 +188,9 @@ function renderPost(post) {
 function renderIndex(items) {
   const rows = items.map((post) => `
     <article>
-      <h2><a href="/blog/${post.slug}.html">${post.title}</a></h2>
-      <p class="meta">${post.date} · ${post.tags.join(' · ')}</p>
-      <p>${post.description}</p>
+      <h2><a href="/blog/${post.slug}.html">${esc(post.title)}</a></h2>
+      <p class="meta">${post.date} · ${esc(post.tags.join(' · '))}</p>
+      <p>${esc(post.description)}</p>
     </article>
   `).join('\n');
 
@@ -184,11 +239,11 @@ ${urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
 function renderRss(items) {
   const feedItems = items.map((p) => `
     <item>
-      <title><![CDATA[${p.title}]]></title>
+      <title><![CDATA[${cdata(p.title)}]]></title>
       <link>${SITE_URL}/blog/${p.slug}.html</link>
       <guid>${SITE_URL}/blog/${p.slug}.html</guid>
       <pubDate>${new Date(`${p.date}T12:00:00Z`).toUTCString()}</pubDate>
-      <description><![CDATA[${p.description}]]></description>
+      <description><![CDATA[${cdata(p.description)}]]></description>
     </item>
   `).join('\n');
 
@@ -202,6 +257,8 @@ function renderRss(items) {
   </channel>
 </rss>\n`;
 }
+
+const posts = mergePosts([...loadAutoPosts(), ...curatedPosts]);
 
 fs.mkdirSync(BLOG_DIR, { recursive: true });
 for (const post of posts) {

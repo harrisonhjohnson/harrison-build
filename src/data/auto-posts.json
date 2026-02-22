@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "slug": "daily-2026-02-22-skills-audit-2026-02-21",
+      "title": "Daily Note: a team member Report",
+      "description": "**Location:** `~/.claude/skills/`",
+      "date": "2026-02-22",
+      "tags": [
+        "product operations"
+      ],
+      "body": [
+        "**Location:** `~/.claude/skills/`",
+        "**Total directories:** 26 (25 dirs + 1 standalone file)",
+        "**Delete now (safe, no content loss):**"
+      ],
+      "source_path": "~/work/skills-audit-2026-02-21.md"
+    }
+  ]
+}
