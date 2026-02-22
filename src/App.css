@@ -51,6 +51,7 @@ a {
   font: inherit;
   cursor: pointer;
   padding: 2px 4px;
+  border-radius: 8px;
 }
 
 .menu-item:hover,
@@ -58,6 +59,11 @@ a {
   background: #111;
   color: #fff;
   outline: none;
+}
+
+.menu-item.is-active {
+  background: #111;
+  color: #fff;
 }
 
 .clock {
@@ -245,21 +251,137 @@ a {
 }
 
 @media (max-width: 780px) {
-  .desktop {
+  body {
+    background: radial-gradient(circle at 20% 0%, #324b8d 0%, #1d2c54 35%, #0a1022 100%);
     overflow: auto;
   }
 
+  .menu-bar {
+    height: 44px;
+    gap: 6px;
+    padding: 6px 10px;
+    border-bottom: 0;
+    background: rgba(240, 243, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .apple-logo {
+    display: none;
+  }
+
+  .menu-item {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #f3f7ff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .menu-item.is-active {
+    color: #102047;
+    background: #e8eeff;
+    border-color: #e8eeff;
+  }
+
+  .menu-item:hover,
+  .menu-item:focus-visible {
+    color: #102047;
+    background: #e8eeff;
+  }
+
+  .clock {
+    color: #f3f7ff;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .desktop {
+    min-height: 100vh;
+    overflow: auto;
+    background-image: none;
+    padding-top: 52px;
+    padding-bottom: 94px;
+  }
+
+  .desktop.mobile-mode {
+    display: block;
+  }
+
   .window {
-    width: calc(100vw - 12px);
-    left: 6px !important;
-    max-height: calc(100vh - 40px);
+    position: relative;
+    margin: 0 10px;
+    width: calc(100vw - 20px);
+    max-height: none;
+    min-height: calc(100vh - 162px);
+    border: 0;
+    border-radius: 26px;
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+  }
+
+  .window-header {
+    height: 44px;
+    border-bottom: 1px solid #ccd6f6;
+    background: linear-gradient(180deg, #f9fbff 0%, #e9efff 100%);
+    cursor: default;
+    touch-action: auto;
+    padding: 0 12px;
+  }
+
+  .window-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .window-close {
+    border-radius: 999px;
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+  }
+
+  .window-content {
+    font-size: 14px;
+    line-height: 1.45;
+    padding: 14px;
   }
 
   .icon-column {
+    position: fixed;
+    left: 8px;
+    right: 8px;
+    bottom: 10px;
+    z-index: 10000;
+    margin: 0;
+    width: auto;
     flex-direction: row;
-    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 10px;
     overflow-x: auto;
-    gap: 12px;
-    padding: 12px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+  }
+
+  .icon {
+    min-width: 58px;
+    color: #f3f7ff;
+    text-shadow: none;
+    gap: 4px;
+  }
+
+  .icon-img {
+    font-size: 20px;
+  }
+
+  .icon-label {
+    font-size: 10px;
+  }
+
+  .os-details {
+    display: none;
   }
 }

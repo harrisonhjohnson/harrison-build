@@ -301,7 +301,15 @@ const WINDOWS = [
   }
 ];
 
-const MENU_ITEMS = ['Journal', 'Projects', 'Personal', 'Resume', 'Contact'];
+const MENU_ITEMS = [
+  { id: 'journal-window', label: 'Journal' },
+  { id: 'projects-window', label: 'Projects' },
+  { id: 'personal-window', label: 'Personal' },
+  { id: 'resume-window', label: 'Resume' },
+  { id: 'about-window', label: 'Contact' }
+];
+
+const DEFAULT_WINDOW_ID = 'journal-window';
 
 function formatClock(now) {
   const hours = now.getHours();
@@ -331,8 +339,9 @@ export default function App() {
   const [openStates, setOpenStates] = useState(defaults.open);
   const [zIndices, setZIndices] = useState(defaults.z);
   const [positions, setPositions] = useState(defaults.pos);
-  const [activeWindow, setActiveWindow] = useState('journal-window');
+  const [activeWindow, setActiveWindow] = useState(DEFAULT_WINDOW_ID);
   const [time, setTime] = useState(formatClock(new Date()));
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 780);
 
   const dragRef = useRef({ id: null, dx: 0, dy: 0 });
 
@@ -345,11 +354,30 @@ export default function App() {
   };
 
   const openWindow = (id) => {
+    if (isMobile) {
+      const next = {};
+      WINDOWS.forEach((w) => {
+        next[w.id] = w.id === id;
+      });
+      setOpenStates(next);
+      bringToFront(id);
+      return;
+    }
     setOpenStates((prev) => ({ ...prev, [id]: true }));
     bringToFront(id);
   };
 
   const closeWindow = (id) => {
+    if (isMobile) {
+      const fallbackId = DEFAULT_WINDOW_ID;
+      const next = {};
+      WINDOWS.forEach((w) => {
+        next[w.id] = w.id === fallbackId;
+      });
+      setOpenStates(next);
+      bringToFront(fallbackId);
+      return;
+    }
     setOpenStates((prev) => ({ ...prev, [id]: false }));
     setActiveWindow((prev) => (prev === id ? null : prev));
   };
@@ -367,9 +395,30 @@ export default function App() {
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
   useEffect(() => {
+    const onResize = () => {
+      const mobile = window.innerWidth <= 780;
+      setIsMobile(mobile);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) {
+      return;
+    }
+    const focused = activeWindow || DEFAULT_WINDOW_ID;
+    const next = {};
+    WINDOWS.forEach((w) => {
+      next[w.id] = w.id === focused;
+    });
+    setOpenStates(next);
+  }, [isMobile, activeWindow]);
+
+  useEffect(() => {
     const onMove = (e) => {
       const { id, dx, dy } = dragRef.current;
-      if (!id) {
+      if (!id || isMobile) {
         return;
       }
 
@@ -393,7 +442,7 @@ export default function App() {
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('pointerup', onUp);
     };
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -421,8 +470,13 @@ export default function App() {
           🍎
         </div>
         {MENU_ITEMS.map((item) => (
-          <button type="button" key={item} className="menu-item">
-            {item}
+          <button
+            type="button"
+            key={item.id}
+            className={`menu-item ${activeWindow === item.id ? 'is-active' : ''}`}
+            onClick={() => openWindow(item.id)}
+          >
+            {item.label}
           </button>
         ))}
         <div className="clock" aria-live="polite">
@@ -430,7 +484,7 @@ export default function App() {
         </div>
       </div>
 
-      <div className="desktop">
+      <div className={`desktop ${isMobile ? 'mobile-mode' : ''}`}>
         <div className="icon-column" role="list" aria-label="Desktop icons">
           {WINDOWS.map((windowConfig) => (
             <button
@@ -452,6 +506,9 @@ export default function App() {
           if (!openStates[w.id]) {
             return null;
           }
+          if (isMobile && w.id !== activeWindow) {
+            return null;
+          }
 
           return (
             <section
@@ -459,13 +516,16 @@ export default function App() {
               key={w.id}
               style={{
                 zIndex: zIndices[w.id],
-                top: positions[w.id].top,
-                left: positions[w.id].left
+                top: isMobile ? undefined : positions[w.id].top,
+                left: isMobile ? undefined : positions[w.id].left
               }}
               onPointerDown={() => bringToFront(w.id)}
               aria-label={`${w.title} window`}
             >
-              <header className="window-header" onPointerDown={(e) => onHeaderPointerDown(e, w.id)}>
+              <header
+                className="window-header"
+                onPointerDown={isMobile ? undefined : (e) => onHeaderPointerDown(e, w.id)}
+              >
                 <button
                   type="button"
                   className="window-close"
