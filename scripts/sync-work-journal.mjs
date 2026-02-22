@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const WORK_DIR = '/Users/harrison/work';
+const PERSONAL_PROJECTS_DIR = '/Users/harrison/personal/projects';
 const OUT_FILE = '/Users/harrison/PARA/Projects/Active/harrison-build/src/data/work-updates.json';
 const MAX_ITEMS = 20;
 
@@ -41,8 +42,31 @@ function getTopLevelMdFiles(dir) {
   return out;
 }
 
+function getProjectMdFiles(dir) {
+  if (!fs.existsSync(dir)) {
+    return [];
+  }
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const out = [];
+  for (const entry of entries) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+    const full = path.join(dir, entry.name, 'PROJECT.md');
+    if (!fs.existsSync(full)) {
+      continue;
+    }
+    const stat = fs.statSync(full);
+    out.push({ name: `${entry.name}/PROJECT.md`, full, stat, source: 'personal' });
+  }
+  return out;
+}
+
 function build() {
-  const files = getTopLevelMdFiles(WORK_DIR)
+  const workFiles = getTopLevelMdFiles(WORK_DIR).map((f) => ({ ...f, source: 'work' }));
+  const personalFiles = getProjectMdFiles(PERSONAL_PROJECTS_DIR);
+
+  const files = [...workFiles, ...personalFiles]
     .sort((a, b) => b.stat.mtimeMs - a.stat.mtimeMs)
     .slice(0, MAX_ITEMS);
 
@@ -51,7 +75,8 @@ function build() {
     const fallbackTitle = f.name.replace(/\.md$/i, '').replace(/-/g, ' ');
     return {
       file: f.name,
-      path: `~/work/${f.name}`,
+      path: f.source === 'work' ? `~/work/${f.name}` : `~/personal/projects/${f.name}`,
+      source: f.source,
       updated_at: new Date(f.stat.mtimeMs).toISOString().slice(0, 10),
       title: readTitle(content, fallbackTitle),
       summary: readSummary(content)

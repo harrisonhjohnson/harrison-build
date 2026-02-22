@@ -162,6 +162,42 @@ const WINDOWS = [
     )
   },
   {
+    id: 'blog-window',
+    title: 'Blog',
+    icon: '📝',
+    label: 'Blog',
+    defaultPosition: { top: 136, left: 338 },
+    content: (
+      <>
+        <h2>Blog and Thinking Archive</h2>
+        <p>
+          SEO-oriented essays on launch execution, localization systems, growth loops,
+          and product operating design.
+        </p>
+        <div className="cta-row">
+          <a className="cta-button" href="/blog/index.html" target="_blank" rel="noreferrer">Open Blog Index</a>
+          <a className="cta-button" href="/rss.xml" target="_blank" rel="noreferrer">RSS Feed</a>
+          <a className="cta-button" href="/sitemap.xml" target="_blank" rel="noreferrer">Sitemap</a>
+        </div>
+
+        <section className="project-card">
+          <h3><a href="/blog/international-launch-control-plane.html" target="_blank" rel="noreferrer">How to Run an International Launch Without Losing the Plot</a></h3>
+          <p className="subtle">Operations design for multi-market rollouts.</p>
+        </section>
+
+        <section className="project-card">
+          <h3><a href="/blog/translation-quality-at-scale.html" target="_blank" rel="noreferrer">Translation Quality at Scale: Platform vs Intelligence</a></h3>
+          <p className="subtle">System design tradeoffs for i18n and QA.</p>
+        </section>
+
+        <section className="project-card">
+          <h3><a href="/blog/referral-trial-growth-loop.html" target="_blank" rel="noreferrer">Referral + Trial: Building a Real Growth Loop</a></h3>
+          <p className="subtle">Acquisition mechanics and instrumentation sequencing.</p>
+        </section>
+      </>
+    )
+  },
+  {
     id: 'resume-window',
     title: 'Resume',
     icon: '📄',
@@ -255,6 +291,7 @@ const MENU_ITEMS = [
   { id: 'projects-window', label: 'Projects' },
   { id: 'wins-window', label: 'Wins' },
   { id: 'case-window', label: 'Cases' },
+  { id: 'blog-window', label: 'Blog' },
   { id: 'personal-window', label: 'Personal' },
   { id: 'resume-window', label: 'Resume' },
   { id: 'about-window', label: 'Contact' }

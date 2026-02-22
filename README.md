@@ -15,6 +15,16 @@ npm run dev
 npm run build
 ```
 
+Builds both the app and SEO blog pages.
+
+## Blog
+
+Generate static SEO blog pages + `sitemap.xml` + `rss.xml`:
+
+```bash
+npm run blog:build
+```
+
 ## Keep Journal Fresh
 
 Sync latest markdown notes from `/Users/harrison/work`:

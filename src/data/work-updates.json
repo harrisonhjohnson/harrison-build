@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-02-22T13:14:21.558Z",
+  "generated_at": "2026-02-22T16:22:39.512Z",
   "source_dir": "/Users/harrison/work",
   "updates": [
     {
       "file": "skills-audit-2026-02-21.md",
       "path": "~/work/skills-audit-2026-02-21.md",
+      "source": "work",
       "updated_at": "2026-02-22",
       "title": "Skills Audit Report",
       "summary": ""
@@ -12,6 +13,7 @@
     {
       "file": "comms-predictions.md",
       "path": "~/work/comms-predictions.md",
+      "source": "work",
       "updated_at": "2026-02-22",
       "title": "Comms Prediction Log",
       "summary": "Track predicted vs. actual outcomes for Darrell and JB messages."
@@ -19,6 +21,7 @@
     {
       "file": "jcvd-project-status.md",
       "path": "~/work/jcvd-project-status.md",
+      "source": "work",
       "updated_at": "2026-02-21",
       "title": "JCVD Slack Bot — Project Status",
       "summary": "---"
@@ -26,6 +29,7 @@
     {
       "file": "free-trial-impact-analysis.md",
       "path": "~/work/free-trial-impact-analysis.md",
+      "source": "work",
       "updated_at": "2026-02-21",
       "title": "Free Trial Impact Analysis: Canada Results & International Projections",
       "summary": "*Author: Harrison Johnson | Date: February 21, 2026*"
@@ -33,6 +37,7 @@
     {
       "file": "international-launch-template.md",
       "path": "~/work/international-launch-template.md",
+      "source": "work",
       "updated_at": "2026-02-21",
       "title": "International Market Launch — Asana Task Template",
       "summary": "---"
@@ -40,6 +45,7 @@
     {
       "file": "pme-synthesis-feb20-2026.md",
       "path": "~/work/pme-synthesis-feb20-2026.md",
+      "source": "work",
       "updated_at": "2026-02-21",
       "title": "Feb 20 Product Analysis Synthesis",
       "summary": "---"
@@ -47,6 +53,7 @@
     {
       "file": "germany-recycling-compliance-TGRC-v2.md",
       "path": "~/work/germany-recycling-compliance-TGRC-v2.md",
+      "source": "work",
       "updated_at": "2026-02-21",
       "title": "Germany E-Waste & Environmental Compliance: Full Scope",
       "summary": "---"
@@ -54,6 +61,7 @@
     {
       "file": "canada-europe-forecast-TFR8.md",
       "path": "~/work/canada-europe-forecast-TFR8.md",
+      "source": "work",
       "updated_at": "2026-02-21",
       "title": "Canada-to-Europe Performance Forecast Framework",
       "summary": "---"
@@ -61,6 +69,7 @@
     {
       "file": "canada-data-prep-TS8S.md",
       "path": "~/work/canada-data-prep-TS8S.md",
+      "source": "work",
       "updated_at": "2026-02-21",
       "title": "Canada Performance Data Prep",
       "summary": "---"
@@ -68,6 +77,7 @@
     {
       "file": "germany-recycling-compliance-TGRC.md",
       "path": "~/work/germany-recycling-compliance-TGRC.md",
+      "source": "work",
       "updated_at": "2026-02-21",
       "title": "Germany Recycling/Packaging Compliance Research",
       "summary": "---"
@@ -75,6 +85,7 @@
     {
       "file": "data-typography-proposal-TDTP.md",
       "path": "~/work/data-typography-proposal-TDTP.md",
+      "source": "work",
       "updated_at": "2026-02-21",
       "title": "Data Typography Standardization Proposal",
       "summary": "---"
@@ -82,6 +93,7 @@
     {
       "file": "andovar-localization-proposal-TLP3.md",
       "path": "~/work/andovar-localization-proposal-TLP3.md",
+      "source": "work",
       "updated_at": "2026-02-21",
       "title": "Andovar Localization Proposal: Safety Manuals + Legal Documents",
       "summary": "---"
@@ -89,6 +101,7 @@
     {
       "file": "blog-migration-decision-brief-TBLG.md",
       "path": "~/work/blog-migration-decision-brief-TBLG.md",
+      "source": "work",
       "updated_at": "2026-02-20",
       "title": "Blog Migration Decision Brief",
       "summary": "---"
@@ -96,6 +109,7 @@
     {
       "file": "european-dashboard-actionability-audit-TCUJ.md",
       "path": "~/work/european-dashboard-actionability-audit-TCUJ.md",
+      "source": "work",
       "updated_at": "2026-02-20",
       "title": "European Dashboard Actionability Audit",
       "summary": "---"
@@ -103,6 +117,7 @@
     {
       "file": "eu-vat-scoping-ch-se-dk-no-TEUV.md",
       "path": "~/work/eu-vat-scoping-ch-se-dk-no-TEUV.md",
+      "source": "work",
       "updated_at": "2026-02-20",
       "title": "EU VAT Scoping Starter: Switzerland, Sweden, Denmark, Norway",
       "summary": "---"
@@ -110,6 +125,7 @@
     {
       "file": "free-trial-membership-copy-summary-TFTD.md",
       "path": "~/work/free-trial-membership-copy-summary-TFTD.md",
+      "source": "work",
       "updated_at": "2026-02-20",
       "title": "Free Trial: In-App Membership Copy Summary",
       "summary": "---"
@@ -117,6 +133,7 @@
     {
       "file": "canada-prospective-email-free-trial-TRCW.md",
       "path": "~/work/canada-prospective-email-free-trial-TRCW.md",
+      "source": "work",
       "updated_at": "2026-02-20",
       "title": "Canada Prospective Email: Free Trial Campaign Brief",
       "summary": "---"
@@ -124,6 +141,7 @@
     {
       "file": "free-trial-referral-bundle-1pager-TKF2.md",
       "path": "~/work/free-trial-referral-bundle-1pager-TKF2.md",
+      "source": "work",
       "updated_at": "2026-02-20",
       "title": "Free Trial + Referral Bundle: Concept 1-Pager",
       "summary": "---"
@@ -131,6 +149,7 @@
     {
       "file": "analysis-currency-fix-status-TCFX.md",
       "path": "~/work/analysis-currency-fix-status-TCFX.md",
+      "source": "work",
       "updated_at": "2026-02-20",
       "title": "Frontend Currency Fix: Status Review (TCFX)",
       "summary": "---"
@@ -138,6 +157,7 @@
     {
       "file": "ctc-uk-competitor-research-TCTC.md",
       "path": "~/work/ctc-uk-competitor-research-TCTC.md",
+      "source": "work",
       "updated_at": "2026-02-20",
       "title": "CTC UK Prep: Competitor Research (TCTC)",
       "summary": "---"

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Harrison Build</title>
+    <link>https://harrison.build/blog/index.html</link>
+    <description>Product, launch, and localization strategy writing.</description>
+    
+    <item>
+      <title><![CDATA[How to Run an International Launch Without Losing the Plot]]></title>
+      <link>https://harrison.build/blog/international-launch-control-plane.html</link>
+      <guid>https://harrison.build/blog/international-launch-control-plane.html</guid>
+      <pubDate>Sun, 22 Feb 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[A practical launch-control framework for coordinating localization, compliance, payments, marketing, and CX across new markets.]]></description>
+    </item>
+  
+
+    <item>
+      <title><![CDATA[Translation Quality at Scale: Platform vs Intelligence]]></title>
+      <link>https://harrison.build/blog/translation-quality-at-scale.html</link>
+      <guid>https://harrison.build/blog/translation-quality-at-scale.html</guid>
+      <pubDate>Sat, 21 Feb 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[Why translation systems need both key coverage infrastructure and context-aware intelligence to prevent silent localization regressions.]]></description>
+    </item>
+  
+
+    <item>
+      <title><![CDATA[Referral + Trial: Building a Real Growth Loop]]></title>
+      <link>https://harrison.build/blog/referral-trial-growth-loop.html</link>
+      <guid>https://harrison.build/blog/referral-trial-growth-loop.html</guid>
+      <pubDate>Fri, 20 Feb 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[How to connect referral and trial systems into one measurable loop and avoid optimizing conversion in the wrong stage.]]></description>
+    </item>
+  
+
+    <item>
+      <title><![CDATA[The Product Memo System I Use to Move Faster]]></title>
+      <link>https://harrison.build/blog/product-memo-system.html</link>
+      <guid>https://harrison.build/blog/product-memo-system.html</guid>
+      <pubDate>Thu, 19 Feb 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[A lightweight decision memo approach for reducing meeting overhead and improving cross-functional execution quality.]]></description>
+    </item>
+  
+
+    <item>
+      <title><![CDATA[From Prototype to Platform: Shipping Internal Tools That Last]]></title>
+      <link>https://harrison.build/blog/from-prototype-to-platform.html</link>
+      <guid>https://harrison.build/blog/from-prototype-to-platform.html</guid>
+      <pubDate>Wed, 18 Feb 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[Patterns for turning fast prototypes into maintainable internal platforms without rewriting everything too early.]]></description>
+    </item>
+  
+  </channel>
+</rss>
