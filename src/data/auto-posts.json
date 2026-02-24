@@ -1,6 +1,23 @@
 {
   "posts": [
     {
+      "slug": "daily-2026-02-24-march-2026-prep-plan",
+      "title": "Daily Note: March 2026 a team member",
+      "description": "**Created:** Feb 23, 2026 (UK soft launch day)",
+      "date": "2026-02-24",
+      "tags": [
+        "product operations"
+      ],
+      "body": [
+        "**Created:** Feb 23, 2026 (UK soft launch day)",
+        "**Purpose:** Research, deliverables, and sequencing for four March goals",
+        "The four goals have different timing constraints. Here is the critical path:",
+        "**The governing constraint:** Goals A and C are coupled. The UK results package proves execution credibility, which is the foundation for the ML pitch. Don't pitch ML before having UK data to anchor the conversation.",
+        "a team member engages with data that has a \"so what\" + next step. He ignores FYIs. The UK results package must answer three questions:"
+      ],
+      "source_path": "~/work/march-2026-prep-plan.md"
+    },
+    {
       "slug": "daily-2026-02-22-skills-audit-2026-02-21",
       "title": "Daily Note: a team member Report",
       "description": "**Location:** `~/.claude/skills/`",

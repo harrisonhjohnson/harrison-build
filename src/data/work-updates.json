@@ -1,7 +1,39 @@
 {
-  "generated_at": "2026-02-22T16:29:04.668Z",
+  "generated_at": "2026-02-24T03:48:21.886Z",
   "source_dir": "/Users/harrison/work",
   "updates": [
+    {
+      "file": "march-swarm-design.md",
+      "path": "~/work/march-swarm-design.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "March Swarm Design: Week of Feb 24-28",
+      "summary": "---"
+    },
+    {
+      "file": "exec-comms-framework.md",
+      "path": "~/work/exec-comms-framework.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "Executive Comms Framework",
+      "summary": "---"
+    },
+    {
+      "file": "march-2026-prep-plan.md",
+      "path": "~/work/march-2026-prep-plan.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "March 2026 Prep Plan",
+      "summary": "---"
+    },
+    {
+      "file": "comms-predictions.md",
+      "path": "~/work/comms-predictions.md",
+      "source": "work",
+      "updated_at": "2026-02-23",
+      "title": "Comms Prediction Log",
+      "summary": "Track predicted vs. actual outcomes for a team member and a team member messages."
+    },
     {
       "file": "skills-audit-2026-02-21.md",
       "path": "~/work/skills-audit-2026-02-21.md",
@@ -9,14 +41,6 @@
       "updated_at": "2026-02-22",
       "title": "Skills Audit Report",
       "summary": ""
-    },
-    {
-      "file": "comms-predictions.md",
-      "path": "~/work/comms-predictions.md",
-      "source": "work",
-      "updated_at": "2026-02-22",
-      "title": "Comms Prediction Log",
-      "summary": "Track predicted vs. actual outcomes for a team member and a team member messages."
     },
     {
       "file": "jcvd-project-status.md",
@@ -136,30 +160,6 @@
       "source": "work",
       "updated_at": "2026-02-20",
       "title": "Canada Prospective Email: Free Trial Campaign Brief",
-      "summary": "---"
-    },
-    {
-      "file": "free-trial-referral-bundle-1pager-TKF2.md",
-      "path": "~/work/free-trial-referral-bundle-1pager-TKF2.md",
-      "source": "work",
-      "updated_at": "2026-02-20",
-      "title": "Free Trial + Referral Bundle: Concept 1-Pager",
-      "summary": "---"
-    },
-    {
-      "file": "analysis-currency-fix-status-TCFX.md",
-      "path": "~/work/analysis-currency-fix-status-TCFX.md",
-      "source": "work",
-      "updated_at": "2026-02-20",
-      "title": "Frontend Currency Fix: Status Review (TCFX)",
-      "summary": "---"
-    },
-    {
-      "file": "ctc-uk-competitor-research-TCTC.md",
-      "path": "~/work/ctc-uk-competitor-research-TCTC.md",
-      "source": "work",
-      "updated_at": "2026-02-20",
-      "title": "CTC UK Prep: Competitor Research (TCTC)",
       "summary": "---"
     }
   ]

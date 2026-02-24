@@ -71,28 +71,8 @@ button:focus-visible {
   color: #fff;
 }
 
-.view-toggle {
-  margin-left: auto;
-  display: flex;
-  gap: 4px;
-}
-
-.view-button {
-  border: 1px solid #222;
-  background: #f2f2f2;
-  font: inherit;
-  font-size: 10px;
-  padding: 1px 6px;
-  border-radius: 999px;
-  cursor: pointer;
-}
-
-.view-button.is-active {
-  background: #1d335f;
-  color: #fff;
-}
-
 .clock {
+  margin-left: auto;
   font-size: 11px;
   min-width: 72px;
   text-align: right;
@@ -385,22 +365,6 @@ button:focus-visible {
     color: #102047;
     background: #e8eeff;
     border-color: #e8eeff;
-  }
-
-  .view-toggle {
-    order: 1;
-    margin-left: 0;
-  }
-
-  .view-button {
-    border-color: rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.1);
-    color: #f3f7ff;
-  }
-
-  .view-button.is-active {
-    background: #e8eeff;
-    color: #102047;
   }
 
   .clock {

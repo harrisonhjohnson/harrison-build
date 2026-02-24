@@ -1,135 +1,83 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import workUpdates from './data/work-updates.json';
 
 const WINDOWS = [
   {
-    id: 'journal-window',
-    title: 'Work Journal',
-    icon: '🗂️',
-    label: 'Journal',
+    id: 'home-window',
+    title: 'Home',
+    icon: '🏠',
+    label: 'Home',
     defaultPosition: { top: 56, left: 108 },
     defaultOpen: true,
     content: (
       <>
-        <h2>Current Work Journal</h2>
-        <p className="subtle">Notes synthesized from `/Users/harrison/work` project files.</p>
+        <h2>Harrison Johnson</h2>
+        <p>I lead product initiatives at the intersection of international expansion, localization quality, and growth execution.</p>
+        <p className="subtle">Product Lead at Chameleon.io | Based in New York</p>
 
-        <section className="trio-strip" aria-label="Current planning strip">
+        <section className="trio-strip" aria-label="Snapshot of impact">
           <article>
-            <h3>Now</h3>
+            <h3>Expansion</h3>
             <ul>
-              <li>UK launch execution and cross-functional readiness</li>
-              <li>Translation intelligence + quality automation</li>
-              <li>International growth diagnostics</li>
+              <li>Led UK launch planning across legal, localization, CX, payments, and operations.</li>
+              <li>Built repeatable planning artifacts for next EU market decisions.</li>
             </ul>
           </article>
           <article>
-            <h3>Next</h3>
+            <h3>Localization</h3>
             <ul>
-              <li>Expand localization coverage and QA enforcement</li>
-              <li>Improve launch dashboard actionability</li>
-              <li>Close loop between referral and trial flow</li>
+              <li>Defined translation intelligence layer across glossary, QA, and locale context.</li>
+              <li>Scoped integration path for 1,383-key translation platform.</li>
             </ul>
           </article>
           <article>
-            <h3>Later</h3>
+            <h3>Growth</h3>
             <ul>
-              <li>Operational playbooks for repeatable market launches</li>
-              <li>Scale analytics and automation systems</li>
-              <li>Codify decision memo framework</li>
+              <li>Diagnosed referral funnel friction and trial-led activation opportunities.</li>
+              <li>Translated analysis into prioritized experiment recommendations.</li>
             </ul>
           </article>
         </section>
 
-        <article className="journal-entry">
-          <div className="journal-date">2026-02-21</div>
-          <h3>JCVD Slack Bot Ready for Install</h3>
-          <p>Built and tested an always-on Slack bot for European expansion support.</p>
-          <ul>
-            <li>48 tests passing in `~/tools/jcvd/`</li>
-            <li>Deployment infra and secrets configured</li>
-            <li>Blocked only on Slack workspace install approval</li>
-          </ul>
-        </article>
-
-        <article className="journal-entry">
-          <div className="journal-date">2026-02-21</div>
-          <h3>Product Analysis Synthesis (10-doc review)</h3>
-          <p>Consolidated referral, trial, UK readiness, EU compliance, and tooling decisions into one operating memo.</p>
-          <ul>
-            <li>Found referral break at share step (not conversion quality)</li>
-            <li>Positioned free trial as strongest international growth lever</li>
-            <li>Flagged Swiss VAT and Norway VOEC as immediate execution risks</li>
-          </ul>
-        </article>
-
-        <h3>Recent Files (Auto-Synced)</h3>
-        <p className="subtle">Generated from your latest `/work` markdown updates.</p>
-        {workUpdates.updates.slice(0, 8).map((item) => (
-          <article className="journal-entry" key={item.path}>
-            <div className="journal-date">{item.updated_at}</div>
-            <h3>{item.title}</h3>
-            <p>{item.summary || item.path}</p>
-            <p className="subtle">{item.path}</p>
-          </article>
-        ))}
+        <h3>Proof Points</h3>
+        <ul className="wins-list">
+          <li><strong>1,383</strong> translation keys aligned into a single operational platform direction.</li>
+          <li><strong>192</strong> glossary terms curated across 10 product and domain areas.</li>
+          <li><strong>210</strong> Figma screens mapped for translation context and UI fit.</li>
+          <li><strong>7</strong> translation QA rules defined, including 6 launch-blocking checks.</li>
+        </ul>
       </>
     )
   },
   {
-    id: 'projects-window',
-    title: 'Projects',
-    icon: '📂',
-    label: 'Projects',
+    id: 'work-window',
+    title: 'Work',
+    icon: '💼',
+    label: 'Work',
     defaultPosition: { top: 82, left: 170 },
     content: (
       <>
-        <h2>Active Project Resume</h2>
+        <h2>Selected Work</h2>
 
         <section className="project-card">
           <h3>International Expansion (UK + EU)</h3>
-          <p className="project-meta"><span className="status active">Active</span><span>Owner: Harrison</span><span>Jan-Mar 2026</span></p>
-          <p><strong>Problem:</strong> Launching new markets required synchronized localization, compliance, payments, and GTM execution.</p>
-          <p><strong>What I did:</strong> Drove cross-functional roadmap, risk tracking, and launch sequencing for UK + EU workstreams.</p>
-          <p><strong>Outcome:</strong> Soft launch execution stayed on track with clear blocker surfacing and mitigation plans.</p>
+          <p className="project-meta"><span className="status active">Flagship</span><span>Product Leadership</span></p>
+          <p>Drove cross-functional launch sequencing across legal, packaging, localization, CX, analytics, and fulfillment.</p>
+          <p><strong>Impact:</strong> Created an actionable launch control plan and translated launch learnings into reusable EU playbooks.</p>
         </section>
 
         <section className="project-card">
           <h3>Translation Intelligence Unification</h3>
-          <p className="project-meta"><span className="status active">Active</span><span>Platform + Intelligence Merge</span></p>
-          <p><strong>Problem:</strong> Existing translation platform had full key coverage but low contextual intelligence.</p>
-          <p><strong>What I did:</strong> Developed glossary, QA rules, locale profiles, and context mapping to improve translation quality.</p>
-          <p><strong>Outcome:</strong> Defined integration plan to combine 1,383-key platform coverage with structured linguistic guardrails.</p>
+          <p className="project-meta"><span className="status active">Flagship</span><span>Localization Systems</span></p>
+          <p>Built quality infrastructure: glossary, QA rules, locale conventions, and UI context mapping.</p>
+          <p><strong>Impact:</strong> Defined a practical architecture to combine platform scale with linguistic correctness.</p>
         </section>
 
         <section className="project-card">
           <h3>Referral + Trial Growth Loop</h3>
-          <p className="project-meta"><span className="status scoped">Scoped</span><span>Canada-first growth experiments</span></p>
-          <p><strong>Problem:</strong> Referral taps were not converting into actual share sessions.</p>
-          <p><strong>What I did:</strong> Mapped funnel drop-off and paired referral strategy with trial-led activation ideas.</p>
-          <p><strong>Outcome:</strong> Identified highest-leverage fix path and experiment backlog for acquisition lift.</p>
+          <p className="project-meta"><span className="status scoped">In Development</span><span>Growth Diagnostics</span></p>
+          <p>Analyzed acquisition and referral behavior to isolate the highest-leverage friction points.</p>
+          <p><strong>Impact:</strong> Reframed efforts from top-funnel volume toward share-mechanic and trial-conversion improvements.</p>
         </section>
-      </>
-    )
-  },
-  {
-    id: 'wins-window',
-    title: 'Wins',
-    icon: '🏆',
-    label: 'Wins',
-    defaultPosition: { top: 98, left: 248 },
-    content: (
-      <>
-        <h2>Selected Wins</h2>
-        <ul className="wins-list">
-          <li><strong>1,383</strong> translation keys unified into a single operational platform path.</li>
-          <li><strong>192</strong> curated glossary terms across 10 domains with locale guidance.</li>
-          <li><strong>7</strong> translation QA rules defined (6 blockers) for quality enforcement.</li>
-          <li><strong>210</strong> Figma screens mapped for UI-aware translation context.</li>
-          <li><strong>48</strong> tests passing on JCVD Slack bot before workspace install.</li>
-          <li><strong>10</strong> product analysis memos synthesized into one operating strategy view.</li>
-          <li><strong>20+</strong> market expansion planning framework built for Q1 execution.</li>
-        </ul>
       </>
     )
   },
@@ -138,41 +86,46 @@ const WINDOWS = [
     title: 'Case Studies',
     icon: '📚',
     label: 'Cases',
-    defaultPosition: { top: 120, left: 300 },
+    defaultPosition: { top: 98, left: 248 },
     content: (
       <>
         <h2>Case Studies</h2>
 
         <section className="project-card">
-          <h3>Case 1: UK Launch Execution</h3>
-          <p><strong>Context:</strong> UK soft launch targeted for February 23, 2026 with tight dependencies across legal, packaging, localization, payments, CX, and analytics.</p>
-          <p><strong>Approach:</strong> Built phased roadmap with owner accountability, critical-path milestones, and blocker resolution loops.</p>
-          <p><strong>Result:</strong> Converted fragmented tasks into a single launch control plane; highlighted compliance and packaging risks early enough to act.</p>
-          <p className="subtle">Source: `~/work/uk-launch-Feb-23-2026.md`</p>
+          <h3>UK Launch Execution</h3>
+          <p><strong>Problem:</strong> Launch readiness was distributed across many teams and dependencies, increasing risk of missed launch-critical work.</p>
+          <p><strong>What I did:</strong> Built phased roadmap, tightened owner accountability, and created blocker escalation loops tied to launch date.</p>
+          <p><strong>Outcome:</strong> Turned fragmented planning into a single operating view for launch decisions and next-market readiness.</p>
         </section>
 
         <section className="project-card">
-          <h3>Case 2: Translation System Unification</h3>
-          <p><strong>Context:</strong> Parallel systems existed: key management infrastructure vs. translation quality intelligence.</p>
-          <p><strong>Approach:</strong> Framed merge architecture where platform remains source of truth and intelligence layer enforces context and QA.</p>
-          <p><strong>Result:</strong> Clear path to combine scale (all keys) with correctness (glossary + rules + locale nuance).</p>
-          <p className="subtle">Source: `~/work/fi-translations-unification.md`</p>
+          <h3>Translation Quality at Scale</h3>
+          <p><strong>Problem:</strong> Platform coverage existed, but translation quality and contextual consistency were uneven.</p>
+          <p><strong>What I did:</strong> Designed intelligence layer with glossary terms, QA gates, locale profiles, and UI-aware context mapping.</p>
+          <p><strong>Outcome:</strong> Established a concrete integration path from basic key management to quality-enforced localization operations.</p>
+        </section>
+
+        <section className="project-card">
+          <h3>Referral + Trial Funnel Diagnosis</h3>
+          <p><strong>Problem:</strong> High referral interaction volume did not translate into meaningful share sessions and conversions.</p>
+          <p><strong>What I did:</strong> Mapped funnel drop-off points and framed trial + referral changes as a combined growth experiment set.</p>
+          <p><strong>Outcome:</strong> Clarified where to intervene first and what to test next for measurable acquisition lift.</p>
         </section>
       </>
     )
   },
   {
-    id: 'blog-window',
-    title: 'Blog',
+    id: 'writing-window',
+    title: 'Writing',
     icon: '📝',
-    label: 'Blog',
-    defaultPosition: { top: 136, left: 338 },
+    label: 'Writing',
+    defaultPosition: { top: 120, left: 300 },
     content: (
       <>
-        <h2>Blog and Thinking Archive</h2>
+        <h2>Writing</h2>
         <p>
-          SEO-oriented essays on launch execution, localization systems, growth loops,
-          and product operating design.
+          Essays and working notes on product execution, international expansion,
+          localization systems, and growth strategy.
         </p>
         <div className="cta-row">
           <a className="cta-button" href="/blog/index.html" target="_blank" rel="noreferrer">Open Blog Index</a>
@@ -198,15 +151,16 @@ const WINDOWS = [
     )
   },
   {
-    id: 'resume-window',
-    title: 'Resume',
-    icon: '📄',
-    label: 'Resume',
-    defaultPosition: { top: 96, left: 226 },
+    id: 'about-window',
+    title: 'About',
+    icon: '👋',
+    label: 'About',
+    defaultPosition: { top: 136, left: 338 },
     content: (
       <>
-        <h2>Harrison Johnson</h2>
-        <p>Product leader focused on international expansion, growth systems, and localization quality at scale.</p>
+        <h2>About</h2>
+        <p>I am a product leader focused on turning complex cross-functional initiatives into clear, executable systems.</p>
+        <p>I work best at the intersection of international launch operations, localization quality, and growth execution.</p>
 
         <h3>Experience</h3>
         <ul>
@@ -215,34 +169,26 @@ const WINDOWS = [
           <li><strong>Operations + Product, Managed by Q</strong> (2014-2020)</li>
         </ul>
 
-        <h3>Tooling I Use</h3>
-        <div className="badge-row" role="list" aria-label="Tools and platforms">
-          {['Claude', 'OpenAI', 'Databricks', 'SQL', 'GrowthBook', 'Figma', 'Slack', 'Recurly', 'Python', 'TypeScript'].map((tool) => (
-            <span className="tool-badge" role="listitem" key={tool}>{tool}</span>
-          ))}
-        </div>
-
-        <h3>Downloads</h3>
-        <div className="cta-row">
-          <a className="cta-button" href="/harrison-johnson-resume.pdf" download>Download Resume (PDF)</a>
-          <a className="cta-button" href="/harrison-johnson-resume.md" download>Download Resume (MD)</a>
-          <a className="cta-button" href="/harrison-johnson-portfolio-summary.md" download>Download One-Pager</a>
-        </div>
+        <h3>How I Work</h3>
+        <ul>
+          <li>Lead with decisions, not status updates.</li>
+          <li>Use lightweight systems to keep teams aligned and moving.</li>
+          <li>Translate analysis into practical next actions.</li>
+        </ul>
       </>
     )
   },
   {
-    id: 'about-window',
-    title: 'About / Contact',
+    id: 'contact-window',
+    title: 'Contact',
     icon: '✉️',
     label: 'Contact',
     defaultPosition: { top: 112, left: 128 },
     content: (
       <>
-        <h2>Now</h2>
-        <p>I build launch systems where product, localization, and growth operations can move fast without sacrificing quality.</p>
+        <h2>Contact</h2>
+        <p>If you are building products across markets and need strong execution at the intersection of product, localization, and growth, I would love to connect.</p>
 
-        <h3>Contact</h3>
         <p>Email: hello@harrison.build</p>
         <p>LinkedIn: linkedin.com/in/harrison-johnson/</p>
         <p>GitHub: github.com/harrisonhjohnson</p>
@@ -254,55 +200,19 @@ const WINDOWS = [
         </div>
       </>
     )
-  },
-  {
-    id: 'personal-window',
-    title: 'Personal Projects',
-    icon: '🧪',
-    label: 'Personal',
-    defaultPosition: { top: 128, left: 280 },
-    content: (
-      <>
-        <h2>Personal Labs</h2>
-
-        <section className="project-card">
-          <h3>Family Tree (Local-first Genealogy)</h3>
-          <p className="project-meta"><span className="status active">Active</span><span>FastAPI + React + OCR pipeline</span></p>
-          <p><strong>Problem:</strong> Family history research is fragmented across scans, notes, and unverifiable claims.</p>
-          <p><strong>What I built:</strong> A local-first app with source ingestion, OCR, assertion review queue, tree visualization, and GEDCOM export.</p>
-          <p><strong>Outcome:</strong> Structured evidence-backed research workflow from raw document to validated person graph.</p>
-          <p className="subtle">Repo: ~/projects/family-tree</p>
-        </section>
-
-        <section className="project-card">
-          <h3>Onboarding LLM Specialist</h3>
-          <p className="project-meta"><span className="status active">Active</span><span>AI product experimentation</span></p>
-          <p><strong>Problem:</strong> Onboarding advice is generic and disconnected from team context.</p>
-          <p><strong>What I built:</strong> A focused retrieval + prompt stack for practical onboarding strategy support.</p>
-          <p><strong>Outcome:</strong> Faster synthesis and higher-quality onboarding decision drafts.</p>
-        </section>
-      </>
-    )
   }
 ];
 
 const MENU_ITEMS = [
-  { id: 'journal-window', label: 'Journal' },
-  { id: 'projects-window', label: 'Projects' },
-  { id: 'wins-window', label: 'Wins' },
+  { id: 'home-window', label: 'Home' },
+  { id: 'work-window', label: 'Work' },
   { id: 'case-window', label: 'Cases' },
-  { id: 'blog-window', label: 'Blog' },
-  { id: 'personal-window', label: 'Personal' },
-  { id: 'resume-window', label: 'Resume' },
-  { id: 'about-window', label: 'Contact' }
+  { id: 'writing-window', label: 'Writing' },
+  { id: 'about-window', label: 'About' },
+  { id: 'contact-window', label: 'Contact' }
 ];
 
-const DEFAULT_WINDOW_ID = 'journal-window';
-const VIEW_MODES = [
-  { id: 'auto', label: 'Auto' },
-  { id: 'desktop', label: 'Desktop' },
-  { id: 'iphone', label: 'iPhone' }
-];
+const DEFAULT_WINDOW_ID = 'home-window';
 
 function formatClock(now) {
   const hours = now.getHours();
@@ -351,11 +261,10 @@ export default function App() {
   const [activeWindow, setActiveWindow] = useState(DEFAULT_WINDOW_ID);
   const [time, setTime] = useState(formatClock(new Date()));
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 780);
-  const [viewMode, setViewMode] = useState('auto');
 
   const dragRef = useRef({ id: null, dx: 0, dy: 0 });
 
-  const iphoneMode = viewMode === 'iphone' || (viewMode === 'auto' && isMobile);
+  const iphoneMode = isMobile;
 
   const bringToFront = (id) => {
     setZIndices((prev) => {
@@ -478,21 +387,6 @@ export default function App() {
             </button>
           ))}
         </div>
-        <div className="view-toggle" role="group" aria-label="Display mode">
-          {VIEW_MODES.map((mode) => (
-            <button
-              key={mode.id}
-              type="button"
-              className={`view-button ${viewMode === mode.id ? 'is-active' : ''}`}
-              onClick={() => {
-                setViewMode(mode.id);
-                trackEvent('mode_toggle', { mode: mode.id });
-              }}
-            >
-              {mode.label}
-            </button>
-          ))}
-        </div>
         <div className="clock" aria-live="polite">{time}</div>
       </div>
 
@@ -544,7 +438,7 @@ export default function App() {
           );
         })}
 
-        <div className="os-details">MacOS System 7.0.1 | Harrison Work Journal Build</div>
+        <div className="os-details">MacOS System 7.0.1 | harrison.build</div>
       </div>
     </>
   );
