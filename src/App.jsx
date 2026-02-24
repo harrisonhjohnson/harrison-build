@@ -12,7 +12,7 @@ const WINDOWS = [
       <>
         <h2>Harrison Johnson</h2>
         <p>I lead product initiatives at the intersection of international expansion, localization quality, and growth execution.</p>
-        <p className="subtle">Product Lead at Chameleon.io | Based in New York</p>
+        <p className="subtle">Senior Product Manager at Fi | Based in New York</p>
 
         <section className="trio-strip" aria-label="Snapshot of impact">
           <article>
@@ -164,7 +164,8 @@ const WINDOWS = [
 
         <h3>Experience</h3>
         <ul>
-          <li><strong>Product Lead, Chameleon.io</strong> (2024-Present)</li>
+          <li><strong>Senior Product Manager, Fi</strong> (Present)</li>
+          <li><strong>Product Lead, Chameleon.io</strong> (Previous)</li>
           <li><strong>Co-Founder, Driveway.app</strong> (2020-2024)</li>
           <li><strong>Operations + Product, Managed by Q</strong> (2014-2020)</li>
         </ul>
@@ -195,8 +196,7 @@ const WINDOWS = [
 
         <div className="cta-row">
           <a className="cta-button" href="mailto:hello@harrison.build">Email Me</a>
-          <a className="cta-button" href="https://calendly.com/harrisonhjohnson" target="_blank" rel="noreferrer">Book 20 Min</a>
-          <a className="cta-button" href="https://github.com/harrisonhjohnson/harrison-build" target="_blank" rel="noreferrer">View GitHub</a>
+          <a className="cta-button" href="https://github.com/harrisonhjohnson" target="_blank" rel="noreferrer">View GitHub</a>
         </div>
       </>
     )
