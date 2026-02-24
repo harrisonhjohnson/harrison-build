@@ -10,27 +10,29 @@ const curatedPosts = [
   {
     slug: 'international-launch-control-plane',
     title: 'How to Run an International Launch Without Losing the Plot',
-    description: 'A practical launch-control framework for coordinating localization, compliance, payments, marketing, and CX across new markets.',
+    description: 'A launch-control framework for coordinating localization, compliance, analytics, and go-to-market execution across new markets.',
     date: '2026-02-22',
     tags: ['international expansion', 'launch strategy', 'product operations'],
+    techStack: ['Looker', 'Figma', 'Notion', 'Slack', 'SQL'],
     body: [
-      'International launches usually fail from coordination debt, not ambition debt. The work is technically known; what breaks is sequencing, ownership, and risk visibility.',
-      'My default operating model is a launch control plane with three layers: execution map (all workstreams), critical path (hard blockers and deadlines), and decision queue (open questions with clear owners).',
-      'The objective is simple: move from scattered checklists to one shared operating surface where dependencies are explicit and escalation is fast.',
-      'If you are launching in stages, treat each stage like a product release. A soft launch should validate systems and uncover operational unknowns; the full marketing launch should scale only after those unknowns are resolved.'
+      'International launches usually fail because coordination breaks before strategy does. Teams know what to do in isolation, but sequencing, ownership, and escalation pathways are often implicit.',
+      'I run launches with a control-plane model that has three layers: an execution map (every workstream), a critical path (hard blockers and deadlines), and a decision queue (open questions with named owners).',
+      'This shifts planning from scattered checklists to one operating view where dependencies are explicit and risk is visible early.',
+      'If launch is phased, treat each phase like a product release. Use soft launch to validate operations and identify unknowns, then scale marketing only after launch-critical risks are resolved.'
     ]
   },
   {
     slug: 'translation-quality-at-scale',
     title: 'Translation Quality at Scale: Platform vs Intelligence',
-    description: 'Why translation systems need both key coverage infrastructure and context-aware intelligence to prevent silent localization regressions.',
+    description: 'Why localization systems need both translation coverage and context-aware intelligence to prevent silent quality regressions.',
     date: '2026-02-21',
     tags: ['localization', 'i18n', 'translation qa'],
+    techStack: ['Crowdin', 'Figma', 'Linear', 'ICU MessageFormat', 'GitHub Actions'],
     body: [
-      'Most localization stacks are either excellent at throughput or excellent at quality controls. You need both.',
-      'A platform layer gives coverage: every key, every locale, every environment. An intelligence layer gives correctness: glossary rules, context disambiguation, UI constraints, and locale nuance.',
-      'The integration pattern that works is straightforward: enrich key records with context metadata, run QA middleware before write, and expose context to translators at generation time.',
-      'The result is not "perfect translations". The result is fewer high-impact errors in user-facing flows and much faster review cycles.'
+      'Most localization stacks optimize for either throughput or quality assurance. Durable systems require both.',
+      'A platform layer provides coverage across keys, locales, and environments. An intelligence layer enforces correctness through glossary controls, context disambiguation, UI constraints, and locale conventions.',
+      'The implementation pattern is practical: enrich keys with context metadata, run QA checks before publish, and expose context directly in translator workflows.',
+      'The goal is not perfect translation. The goal is fewer high-impact user-facing errors and faster review cycles with clearer quality gates.'
     ]
   },
   {
@@ -39,11 +41,12 @@ const curatedPosts = [
     description: 'How to connect referral and trial systems into one measurable loop and avoid optimizing conversion in the wrong stage.',
     date: '2026-02-20',
     tags: ['growth', 'referrals', 'trial conversion'],
+    techStack: ['Amplitude', 'Segment', 'Looker', 'PostHog', 'A/B testing'],
     body: [
-      'A common mistake is focusing on conversion rate before diagnosing traffic handoff quality. In referral systems, share-step drop-off can hide the true channel value.',
-      'A practical sequence is: instrument share flow first, simplify handoff mechanics second, then test offer mechanics (for example trial incentives) once transport is reliable.',
-      'Trial and referral should be architected as one loop: activation creates value, value drives sharing, sharing creates qualified trial entries, and trial outcomes feed back into activation design.',
-      'When the loop is healthy, your experiments become compounding rather than isolated.'
+      'Teams often jump to conversion optimization before validating referral transport quality. If share-step handoff is weak, conversion tests can produce misleading conclusions.',
+      'A better sequence is: instrument share flow first, reduce handoff friction second, then test offer mechanics after transport reliability is stable.',
+      'Referral and trial should be designed as one loop: activation creates value, value drives sharing, sharing creates qualified entries, and trial outcomes inform activation design.',
+      'When the loop is healthy, experiments compound instead of producing isolated local gains.'
     ]
   },
   {
@@ -52,11 +55,12 @@ const curatedPosts = [
     description: 'A lightweight decision memo approach for reducing meeting overhead and improving cross-functional execution quality.',
     date: '2026-02-19',
     tags: ['product management', 'decision making', 'execution systems'],
+    techStack: ['Notion', 'Google Docs', 'Linear', 'Slack'],
     body: [
-      'I treat memos as execution artifacts, not documentation artifacts. A useful memo narrows decisions, clarifies risks, and forces owner accountability.',
-      'The template is stable: context, facts, options, recommendation, risks, and next decisions. If any section is weak, the team does not move faster.',
-      'The major benefit is organizational memory. Future decisions become cheaper because assumptions and tradeoffs are explicit and reviewable.',
-      'If your team is repeating the same argument every two weeks, you probably need better memo hygiene, not another recurring meeting.'
+      'I treat memos as execution artifacts, not documentation artifacts. Strong memos narrow decisions, clarify risk, and assign accountability.',
+      'My baseline structure is stable: context, facts, options, recommendation, risks, and next decisions. If one section is weak, execution slows.',
+      'The long-term payoff is organizational memory: assumptions and tradeoffs are explicit, so future decisions are faster and lower-friction.',
+      'If a team repeats the same debate every two weeks, the issue is usually memo quality, not meeting frequency.'
     ]
   },
   {
@@ -65,11 +69,12 @@ const curatedPosts = [
     description: 'Patterns for turning fast prototypes into maintainable internal platforms without rewriting everything too early.',
     date: '2026-02-18',
     tags: ['internal tools', 'platform design', 'technical strategy'],
+    techStack: ['React', 'Node.js', 'Vite', 'Postgres', 'GitHub Actions'],
     body: [
-      'Fast prototypes are useful because they collapse uncertainty quickly. They become dangerous when teams either over-invest in polishing too early or never invest in hardening at all.',
-      'The transition point is usually visible: multiple teams rely on the tool, critical decisions depend on it, and ad-hoc fixes become daily operational cost.',
-      'At that point, the right move is incremental platformization: stabilize interfaces, add basic observability, and isolate high-change surfaces behind clear ownership.',
-      'You do not need a rewrite to get platform benefits. You need disciplined boundaries and a roadmap that protects reliability first.'
+      'Prototypes are valuable because they collapse uncertainty quickly. They become liabilities when teams either polish too early or never harden at all.',
+      'The transition point is usually clear: more teams depend on the tool, critical decisions rely on its output, and ad-hoc fixes become routine operational cost.',
+      'The right move is incremental platformization: stabilize interfaces, add baseline observability, and isolate high-change surfaces behind clear ownership.',
+      'You do not need a full rewrite to gain platform reliability. You need disciplined boundaries and a roadmap that protects stability first.'
     ]
   }
 ];
@@ -106,6 +111,7 @@ function loadAutoPosts() {
         description: String(post.description ?? '').trim(),
         date: String(post.date ?? '').trim(),
         tags: Array.isArray(post.tags) ? post.tags.map((tag) => String(tag)).slice(0, 6) : [],
+        techStack: Array.isArray(post.techStack) ? post.techStack.map((item) => String(item)).slice(0, 8) : [],
         body: Array.isArray(post.body) ? post.body.map((line) => String(line)).filter(Boolean) : []
       }))
       .filter((post) => post.slug && post.title && post.description && post.date && post.body.length > 0);
@@ -130,6 +136,9 @@ function mergePosts(posts) {
 
 function renderPost(post) {
   const tagHtml = post.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join('');
+  const stackHtml = (post.techStack ?? []).map((t) => `<span class="tag stack">${esc(t)}</span>`).join('');
+  const stackMeta = post.techStack?.length ? `<div class="meta">Tech stack: ${esc(post.techStack.join(' · '))}</div>` : '';
+  const stackHeadMeta = post.techStack?.length ? `\n  <meta name="x-tech-stack" content="${esc(post.techStack.join(', '))}" />` : '';
   const bodyHtml = post.body.map((p) => `<p>${esc(p)}</p>`).join('\n');
   const url = `${SITE_URL}/blog/${post.slug}.html`;
   return `<!doctype html>
@@ -140,6 +149,7 @@ function renderPost(post) {
   <title>${esc(post.title)} | Harrison Johnson</title>
   <meta name="description" content="${esc(post.description)}" />
   <meta name="keywords" content="${esc(post.tags.join(', '))}" />
+${stackHeadMeta}
   <link rel="canonical" href="${url}" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="${esc(post.title)}" />
@@ -156,7 +166,9 @@ function renderPost(post) {
     dateModified: post.date,
     author: { '@type': 'Person', name: 'Harrison Johnson' },
     mainEntityOfPage: url,
-    publisher: { '@type': 'Person', name: 'Harrison Johnson' }
+    publisher: { '@type': 'Person', name: 'Harrison Johnson' },
+    keywords: [...(post.tags ?? []), ...(post.techStack ?? [])].join(', '),
+    about: (post.techStack ?? []).map((name) => ({ '@type': 'Thing', name }))
   })}</script>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 760px; margin: 0 auto; padding: 28px 16px 48px; color: #1a1a1a; line-height: 1.65; }
@@ -164,6 +176,7 @@ function renderPost(post) {
     .meta { color: #566; font-size: 14px; margin-bottom: 12px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 20px; }
     .tag { font-size: 12px; background: #eef3ff; border: 1px solid #cdd9ff; border-radius: 999px; padding: 3px 10px; }
+    .tag.stack { background: #edf8ef; border-color: #b8dec0; }
     h1 { line-height: 1.25; margin-bottom: 8px; }
     p { margin: 0 0 14px; }
     nav { margin-top: 28px; font-size: 14px; }
@@ -173,7 +186,9 @@ function renderPost(post) {
   <header>
     <h1>${esc(post.title)}</h1>
     <div class="meta">Published ${post.date}</div>
+    ${stackMeta}
     <div class="tags">${tagHtml}</div>
+    ${stackHtml ? `<div class="tags">${stackHtml}</div>` : ''}
   </header>
   <main>
     ${bodyHtml}
@@ -190,6 +205,7 @@ function renderIndex(items) {
     <article>
       <h2><a href="/blog/${post.slug}.html">${esc(post.title)}</a></h2>
       <p class="meta">${post.date} · ${esc(post.tags.join(' · '))}</p>
+      ${post.techStack?.length ? `<p class="meta">Tech stack: ${esc(post.techStack.join(' · '))}</p>` : ''}
       <p>${esc(post.description)}</p>
     </article>
   `).join('\n');

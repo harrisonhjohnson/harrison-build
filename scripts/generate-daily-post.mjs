@@ -33,10 +33,23 @@ function redact(text) {
   let out = text;
   for (const name of NAME_REDACTIONS) {
     const re = new RegExp(`\\b${name}\\b`, 'g');
-    out = out.replace(re, 'a team member');
+    out = out.replace(re, 'a stakeholder');
   }
   out = out.replace(/\b[A-Z][a-z]+\s+[A-Z][a-z]+\b/g, 'a team member');
   return out;
+}
+
+function redactTitle(text) {
+  let out = text;
+  for (const name of NAME_REDACTIONS) {
+    const re = new RegExp(`\\b${name}\\b`, 'g');
+    out = out.replace(re, 'a stakeholder');
+  }
+  return out
+    .replace(/\ba team member\b/gi, 'stakeholder')
+    .replace(/\ba stakeholder\b/gi, 'stakeholder')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function firstTitle(content, fallback) {
@@ -73,6 +86,20 @@ function deriveTags(name, title) {
   return tags.slice(0, 4);
 }
 
+function deriveTechStack(name, title, content) {
+  const text = `${name} ${title} ${content}`.toLowerCase();
+  const stack = [];
+  if (/sql|query|bigquery|snowflake|postgres/.test(text)) stack.push('SQL');
+  if (/looker|tableau|power bi/.test(text)) stack.push('Looker');
+  if (/figma/.test(text)) stack.push('Figma');
+  if (/slack/.test(text)) stack.push('Slack');
+  if (/notion/.test(text)) stack.push('Notion');
+  if (/github|git/.test(text)) stack.push('GitHub');
+  if (/amplitude|mixpanel|posthog|segment/.test(text)) stack.push('Product Analytics');
+  if (/translation|localization|i18n|l10n/.test(text)) stack.push('Localization QA');
+  return stack.slice(0, 6);
+}
+
 function latestDoc() {
   const names = fs.readdirSync(WORK_DIR);
   const eligible = [];
@@ -107,7 +134,7 @@ function main() {
   const content = fs.readFileSync(doc.full, 'utf8');
   const fallbackTitle = doc.name.replace(/\.md$/i, '').replace(/-/g, ' ');
   const titleBase = firstTitle(content, fallbackTitle);
-  const title = redact(titleBase);
+  const title = redactTitle(titleBase);
   const body = extractParagraphs(content, 5);
 
   if (body.length === 0) {
@@ -125,6 +152,7 @@ function main() {
     description,
     date: today,
     tags: deriveTags(doc.name, title),
+    techStack: deriveTechStack(doc.name, title, content),
     body,
     source_path: `~/work/${doc.name}`
   });
