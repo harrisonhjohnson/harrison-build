@@ -1,7 +1,111 @@
 {
-  "generated_at": "2026-02-24T03:48:21.886Z",
+  "generated_at": "2026-02-24T14:00:00.016Z",
   "source_dir": "/Users/harrison/work",
   "updates": [
+    {
+      "file": "fi-initiatives-q1-2026.md",
+      "path": "~/work/fi-initiatives-q1-2026.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "Fi Initiatives - Q1 2026",
+      "summary": "*Generated from staffing spreadsheet + Slack + fi-2026-roadmap*"
+    },
+    {
+      "file": "uk-launch-briefing-feb-23.md",
+      "path": "~/work/uk-launch-briefing-feb-23.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "UK Launch Briefing — Feb 23, 2026",
+      "summary": ""
+    },
+    {
+      "file": "uk-day1-metrics-check-v2.md",
+      "path": "~/work/uk-day1-metrics-check-v2.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "UK Day 1 Metrics Check (v2 — Corrected Filters)",
+      "summary": "---"
+    },
+    {
+      "file": "fi-intelligence-intl-gap-framework.md",
+      "path": "~/work/fi-intelligence-intl-gap-framework.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "Fi Intelligence — International Coverage Gap Analysis Framework",
+      "summary": "---"
+    },
+    {
+      "file": "ml-brief-2026-02-24.md",
+      "path": "~/work/ml-brief-2026-02-24.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "ML Portfolio Brief - 2026-02-24",
+      "summary": "Prepared for: Harrison Johnson"
+    },
+    {
+      "file": "escape-detection-product-questions.md",
+      "path": "~/work/escape-detection-product-questions.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "Escape Detection v2: Product Questions",
+      "summary": "---"
+    },
+    {
+      "file": "compliance-provider-research.md",
+      "path": "~/work/compliance-provider-research.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "EU Compliance Provider Research: take-e-way, WEEElogic, ecosistant",
+      "summary": "---"
+    },
+    {
+      "file": "canada-day1-14-baseline.md",
+      "path": "~/work/canada-day1-14-baseline.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "Canada Ecommerce: Day 1-14 Baseline (Oct 1-14, 2025)",
+      "summary": "*Purpose: Comparison baseline for UK launch (started Feb 23, 2026). Pull date: 2026-02-23.*"
+    },
+    {
+      "file": "ml-pm-strategy.md",
+      "path": "~/work/ml-pm-strategy.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "ML PM Strategy Tracker",
+      "summary": "Phase 1: Build ML Credibility (Now through March 15)"
+    },
+    {
+      "file": "ehi-scope-assessment.md",
+      "path": "~/work/ehi-scope-assessment.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "Ehi Scope Assessment -- Feb 24, 2026",
+      "summary": "---"
+    },
+    {
+      "file": "free-trial-referral-bundle-1pager-TKF2.md",
+      "path": "~/work/free-trial-referral-bundle-1pager-TKF2.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "Free Trial + Referral Bundle: Concept 1-Pager",
+      "summary": "---"
+    },
+    {
+      "file": "uk-day1-metrics-check.md",
+      "path": "~/work/uk-day1-metrics-check.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "UK Day 1 Metrics Check — 2026-02-23",
+      "summary": "Filter: country = 'GB', session date = 2026-02-23"
+    },
+    {
+      "file": "andovar-budget-justification.md",
+      "path": "~/work/andovar-budget-justification.md",
+      "source": "work",
+      "updated_at": "2026-02-24",
+      "title": "Budget Justification: Andovar EU Safety & Legal Translation",
+      "summary": "---"
+    },
     {
       "file": "march-swarm-design.md",
       "path": "~/work/march-swarm-design.md",
@@ -57,110 +161,6 @@
       "updated_at": "2026-02-21",
       "title": "Free Trial Impact Analysis: Canada Results & International Projections",
       "summary": "*Author: Harrison Johnson | Date: February 21, 2026*"
-    },
-    {
-      "file": "international-launch-template.md",
-      "path": "~/work/international-launch-template.md",
-      "source": "work",
-      "updated_at": "2026-02-21",
-      "title": "International Market Launch — Asana Task Template",
-      "summary": "---"
-    },
-    {
-      "file": "pme-synthesis-feb20-2026.md",
-      "path": "~/work/pme-synthesis-feb20-2026.md",
-      "source": "work",
-      "updated_at": "2026-02-21",
-      "title": "Feb 20 Product Analysis Synthesis",
-      "summary": "---"
-    },
-    {
-      "file": "germany-recycling-compliance-TGRC-v2.md",
-      "path": "~/work/germany-recycling-compliance-TGRC-v2.md",
-      "source": "work",
-      "updated_at": "2026-02-21",
-      "title": "Germany E-Waste & Environmental Compliance: Full Scope",
-      "summary": "---"
-    },
-    {
-      "file": "canada-europe-forecast-TFR8.md",
-      "path": "~/work/canada-europe-forecast-TFR8.md",
-      "source": "work",
-      "updated_at": "2026-02-21",
-      "title": "Canada-to-Europe Performance Forecast Framework",
-      "summary": "---"
-    },
-    {
-      "file": "canada-data-prep-TS8S.md",
-      "path": "~/work/canada-data-prep-TS8S.md",
-      "source": "work",
-      "updated_at": "2026-02-21",
-      "title": "Canada Performance Data Prep",
-      "summary": "---"
-    },
-    {
-      "file": "germany-recycling-compliance-TGRC.md",
-      "path": "~/work/germany-recycling-compliance-TGRC.md",
-      "source": "work",
-      "updated_at": "2026-02-21",
-      "title": "Germany Recycling/Packaging Compliance Research",
-      "summary": "---"
-    },
-    {
-      "file": "data-typography-proposal-TDTP.md",
-      "path": "~/work/data-typography-proposal-TDTP.md",
-      "source": "work",
-      "updated_at": "2026-02-21",
-      "title": "Data Typography Standardization Proposal",
-      "summary": "---"
-    },
-    {
-      "file": "andovar-localization-proposal-TLP3.md",
-      "path": "~/work/andovar-localization-proposal-TLP3.md",
-      "source": "work",
-      "updated_at": "2026-02-21",
-      "title": "Andovar Localization Proposal: Safety Manuals + Legal Documents",
-      "summary": "---"
-    },
-    {
-      "file": "blog-migration-decision-brief-TBLG.md",
-      "path": "~/work/blog-migration-decision-brief-TBLG.md",
-      "source": "work",
-      "updated_at": "2026-02-20",
-      "title": "Blog Migration Decision Brief",
-      "summary": "---"
-    },
-    {
-      "file": "european-dashboard-actionability-audit-TCUJ.md",
-      "path": "~/work/european-dashboard-actionability-audit-TCUJ.md",
-      "source": "work",
-      "updated_at": "2026-02-20",
-      "title": "European Dashboard Actionability Audit",
-      "summary": "---"
-    },
-    {
-      "file": "eu-vat-scoping-ch-se-dk-no-TEUV.md",
-      "path": "~/work/eu-vat-scoping-ch-se-dk-no-TEUV.md",
-      "source": "work",
-      "updated_at": "2026-02-20",
-      "title": "EU VAT Scoping Starter: Switzerland, Sweden, Denmark, Norway",
-      "summary": "---"
-    },
-    {
-      "file": "free-trial-membership-copy-summary-TFTD.md",
-      "path": "~/work/free-trial-membership-copy-summary-TFTD.md",
-      "source": "work",
-      "updated_at": "2026-02-20",
-      "title": "Free Trial: In-App Membership Copy Summary",
-      "summary": "---"
-    },
-    {
-      "file": "canada-prospective-email-free-trial-TRCW.md",
-      "path": "~/work/canada-prospective-email-free-trial-TRCW.md",
-      "source": "work",
-      "updated_at": "2026-02-20",
-      "title": "Canada Prospective Email: Free Trial Campaign Brief",
-      "summary": "---"
     }
   ]
 }
