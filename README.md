@@ -49,3 +49,14 @@ AUTO_PUSH=1 npm run watch:work
 
 The site logs lightweight interaction events to `localStorage` under `hb_events`.
 If Plausible is loaded on the page (`window.plausible`), events are also emitted there.
+
+Traffic tracking is wired with:
+
+```html
+<script defer data-domain="harrison.build" src="https://plausible.io/js/script.js"></script>
+```
+
+To activate reporting:
+1. Create a Plausible site for `harrison.build`.
+2. Verify the domain in Plausible.
+3. Deploy this repo; pageviews and custom `window.plausible(...)` events will appear in Plausible.

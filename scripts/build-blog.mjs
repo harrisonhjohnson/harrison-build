@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const SITE_URL = 'https://harrison.build';
+const ANALYTICS_DOMAIN = 'harrison.build';
+const ANALYTICS_SCRIPT = 'https://plausible.io/js/script.js';
 const BLOG_DIR = '/Users/harrison/PARA/Projects/Active/harrison-build/public/blog';
 const PUBLIC_DIR = '/Users/harrison/PARA/Projects/Active/harrison-build/public';
 const AUTO_POSTS_FILE = '/Users/harrison/PARA/Projects/Active/harrison-build/src/data/auto-posts.json';
@@ -18,7 +20,8 @@ const curatedPosts = [
       'International launches usually fail because coordination breaks before strategy does. Teams know what to do in isolation, but sequencing, ownership, and escalation pathways are often implicit.',
       'I run launches with a control-plane model that has three layers: an execution map (every workstream), a critical path (hard blockers and deadlines), and a decision queue (open questions with named owners).',
       'This shifts planning from scattered checklists to one operating view where dependencies are explicit and risk is visible early.',
-      'If launch is phased, treat each phase like a product release. Use soft launch to validate operations and identify unknowns, then scale marketing only after launch-critical risks are resolved.'
+      'If launch is phased, treat each phase like a product release. Use soft launch to validate operations and identify unknowns, then scale marketing only after launch-critical risks are resolved.',
+      'For translation readiness patterns inside that control plane, see [Translation Quality at Scale: Platform vs Intelligence](/blog/translation-quality-at-scale.html).'
     ]
   },
   {
@@ -32,7 +35,8 @@ const curatedPosts = [
       'Most localization stacks optimize for either throughput or quality assurance. Durable systems require both.',
       'A platform layer provides coverage across keys, locales, and environments. An intelligence layer enforces correctness through glossary controls, context disambiguation, UI constraints, and locale conventions.',
       'The implementation pattern is practical: enrich keys with context metadata, run QA checks before publish, and expose context directly in translator workflows.',
-      'The goal is not perfect translation. The goal is fewer high-impact user-facing errors and faster review cycles with clearer quality gates.'
+      'The goal is not perfect translation. The goal is fewer high-impact user-facing errors and faster review cycles with clearer quality gates.',
+      'For execution design across multi-team launch work, see [How to Run an International Launch Without Losing the Plot](/blog/international-launch-control-plane.html).'
     ]
   },
   {
@@ -46,7 +50,8 @@ const curatedPosts = [
       'Teams often jump to conversion optimization before validating referral transport quality. If share-step handoff is weak, conversion tests can produce misleading conclusions.',
       'A better sequence is: instrument share flow first, reduce handoff friction second, then test offer mechanics after transport reliability is stable.',
       'Referral and trial should be designed as one loop: activation creates value, value drives sharing, sharing creates qualified entries, and trial outcomes inform activation design.',
-      'When the loop is healthy, experiments compound instead of producing isolated local gains.'
+      'When the loop is healthy, experiments compound instead of producing isolated local gains.',
+      'For a channel-economics framing of growth budget decisions, see [Instagram Channel Economics: The Break-Even Session Cost Most Teams Miss](/blog/instagram-channel-economics-break-even-session-cost.html).'
     ]
   },
   {
@@ -60,7 +65,8 @@ const curatedPosts = [
       'I treat memos as execution artifacts, not documentation artifacts. Strong memos narrow decisions, clarify risk, and assign accountability.',
       'My baseline structure is stable: context, facts, options, recommendation, risks, and next decisions. If one section is weak, execution slows.',
       'The long-term payoff is organizational memory: assumptions and tradeoffs are explicit, so future decisions are faster and lower-friction.',
-      'If a team repeats the same debate every two weeks, the issue is usually memo quality, not meeting frequency.'
+      'If a team repeats the same debate every two weeks, the issue is usually memo quality, not meeting frequency.',
+      'When memos drive experiment sequencing, they pair well with [Referral + Trial: Building a Real Growth Loop](/blog/referral-trial-growth-loop.html).'
     ]
   },
   {
@@ -74,7 +80,8 @@ const curatedPosts = [
       'Prototypes are valuable because they collapse uncertainty quickly. They become liabilities when teams either polish too early or never harden at all.',
       'The transition point is usually clear: more teams depend on the tool, critical decisions rely on its output, and ad-hoc fixes become routine operational cost.',
       'The right move is incremental platformization: stabilize interfaces, add baseline observability, and isolate high-change surfaces behind clear ownership.',
-      'You do not need a full rewrite to gain platform reliability. You need disciplined boundaries and a roadmap that protects stability first.'
+      'You do not need a full rewrite to gain platform reliability. You need disciplined boundaries and a roadmap that protects stability first.',
+      'The same discipline improves localization systems; compare with [Translation Quality at Scale: Platform vs Intelligence](/blog/translation-quality-at-scale.html).'
     ]
   }
 ];
@@ -86,6 +93,35 @@ function esc(value) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+function isSafeHref(href) {
+  return /^(https?:\/\/|\/|#|mailto:)/i.test(href);
+}
+
+function renderInline(text) {
+  const value = String(text);
+  const linkPattern = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+  let out = '';
+  let last = 0;
+  let match;
+
+  while ((match = linkPattern.exec(value)) !== null) {
+    const [full, label, href] = match;
+    const start = match.index;
+    out += esc(value.slice(last, start));
+
+    if (isSafeHref(href)) {
+      out += `<a href="${esc(href)}">${esc(label)}</a>`;
+    } else {
+      out += esc(full);
+    }
+
+    last = start + full.length;
+  }
+
+  out += esc(value.slice(last));
+  return out;
 }
 
 function cdata(value) {
@@ -139,7 +175,7 @@ function renderPost(post) {
   const stackHtml = (post.techStack ?? []).map((t) => `<span class="tag stack">${esc(t)}</span>`).join('');
   const stackMeta = post.techStack?.length ? `<div class="meta">Tech stack: ${esc(post.techStack.join(' · '))}</div>` : '';
   const stackHeadMeta = post.techStack?.length ? `\n  <meta name="x-tech-stack" content="${esc(post.techStack.join(', '))}" />` : '';
-  const bodyHtml = post.body.map((p) => `<p>${esc(p)}</p>`).join('\n');
+  const bodyHtml = post.body.map((p) => `<p>${renderInline(p)}</p>`).join('\n');
   const url = `${SITE_URL}/blog/${post.slug}.html`;
   return `<!doctype html>
 <html lang="en">
@@ -157,6 +193,7 @@ ${stackHeadMeta}
   <meta property="og:url" content="${url}" />
   <meta property="og:site_name" content="Harrison Build" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script defer data-domain="${ANALYTICS_DOMAIN}" src="${ANALYTICS_SCRIPT}"></script>
   <script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -219,6 +256,7 @@ function renderIndex(items) {
   <meta name="description" content="Essays on product strategy, international expansion, localization systems, and growth execution." />
   <link rel="canonical" href="${SITE_URL}/blog/index.html" />
   <link rel="alternate" type="application/rss+xml" title="Harrison Build RSS" href="${SITE_URL}/rss.xml" />
+  <script defer data-domain="${ANALYTICS_DOMAIN}" src="${ANALYTICS_SCRIPT}"></script>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 820px; margin: 0 auto; padding: 28px 16px 48px; color: #1a1a1a; }
     h1 { margin-bottom: 8px; }

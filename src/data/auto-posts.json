@@ -1,6 +1,41 @@
 {
   "posts": [
     {
+      "slug": "instagram-channel-economics-break-even-session-cost",
+      "title": "Instagram Channel Economics: The Break-Even Session Cost Most Teams Miss",
+      "description": "How to run an anonymized Instagram ROI analysis with break-even economics, cohort-aware CAC interpretation, and actionable budget decisions.",
+      "date": "2026-02-25",
+      "tags": [
+        "instagram roi analysis",
+        "channel economics",
+        "customer acquisition cost",
+        "attribution",
+        "growth analytics"
+      ],
+      "techStack": [
+        "Databricks",
+        "Meta Ads",
+        "Jupyter",
+        "Python"
+      ],
+      "body": [
+        "Most Instagram ROI debates collapse into the same bad question: \"Is channel X good or bad?\" The better question is economic: what is the maximum cost per session we can pay before unit economics break?",
+        "This post intentionally anonymizes raw conversion and revenue figures. The method is unchanged: estimate session value from observed conversion and monetization, then compute a break-even session-cost threshold for any growth tactic.",
+        "That threshold clarified the decision. Creator-driven organic traffic scenarios we modeled were consistently above break-even, including best-case assumptions, so the tactic stayed economically out of the money.",
+        "This is where many teams lose statistical integrity: they compare creator output quality or engagement rates without converting those metrics into session economics and purchase economics. Engagement is not return.",
+        "We also reconciled CAC framing. Session-level and short-window paid CAC can look extreme because they exclude downstream effects and timing differences. Cohort-aware views reduced distortion, but the break-even session threshold still held as the governing constraint for creator-profile buys.",
+        "A second non-obvious result was a measurable paid-to-organic halo. Independent methods agreed on positive directional lift, but with a wide uncertainty band, so we treated halo magnitude as directional rather than point-precise.",
+        "Methodologically, this matters because decisions should be robust to uncertainty, not dependent on a single optimistic estimate. We used the halo as supporting evidence, not the core investment thesis.",
+        "The practical implication is nuanced: paid Instagram can still make strategic sense, but mainly through formats that preserve conversion pathways. The data did not support buying creator posts primarily to push off-platform organic sessions.",
+        "For a related loop-design perspective, see [Referral + Trial: Building a Real Growth Loop](/blog/referral-trial-growth-loop.html).",
+        "The operational impact was immediate: the framework prevented additional spend on an uneconomic tactic and tightened the brief for what future experiments must prove before budget is approved.",
+        "For technical teams, the implementation pattern is straightforward. First, estimate per-session value from observed conversion and revenue. Second, derive the break-even session cost. Third, force every growth idea through that threshold before discussing creative optimization.",
+        "If a proposed tactic cannot plausibly beat break-even on conservative assumptions, do not fund it because it \"feels brand-right.\" Move budget toward channels where measurement ties directly to session cost, purchase cost, and retained value over time.",
+        "This is ultimately a systems problem, not a content problem. A channel strategy is only as strong as the economic model underneath it."
+      ],
+      "source_path": "~/work/ig-organic-valuation/FINDINGS.md"
+    },
+    {
       "slug": "daily-2026-02-24-march-2026-prep-plan",
       "title": "Daily Note: March 2026 Prep Plan",
       "description": "**Created:** Feb 23, 2026 (UK soft launch day)",
